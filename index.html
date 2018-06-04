@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <h1 id="title">Crystal Collector!</h1>
+
+    <section id="instructions">
+        <p>You will be given a random number at the start of the game.</p>
+        <p>There are four crystals below. By clicking on a crystal you will add a specific ammount of points to your total score.</p>
+        <p>You win the game by matching your total score to a random number, you lose the game if you total score goes above the random number.</p>
+        <p>The value of each crystal is hidden from you until you click on it.</p>
+        <p>Each time when the game starts, the game will change the values of each crystal.</p>
+    </section>
+
+
+    <div id="gameNumber">40</div>
+    <div id="winLosses">Wins: <span id="wins">0</span><br>Losses: <span id="losses">0</span></div>
+    <div class="clearfix"></div>
+
+
+    <div id="buttonGroup">
+        <button id="blue">Blue</button>
+        <button id="red">Red</button>
+        <button id="green">Green</button>
+        <button id="yellow">Yellow</button>
+    </div>
+
+
+    <div id="scoreLabel" class="teal">Your total score is: </div>
+    <div id="playerScore" class="teal">0</div>
+
+    <script src="assets/js/app.js"></script>
+    
+</body>
+</html>

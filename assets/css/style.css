@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+
+}
+html, body {
+    margin: .2em;
+    padding: 0;
+}
+
+#title {
+    width: max-content;
+    background: orange;
+    color: white;
+    padding: .5em .1em .5em .1em;
+    margin: 0;
+}
+
+#instructions {
+    width: 400px;
+    background: tan;
+    margin: 0; 
+}
+#gameNumber {
+    width: 100px;
+    padding: 1em;
+    text-align: center;
+    background: green;
+    float: left;
+}
+#winLosses {
+    background: lightblue;
+    width: 80px;
+    float: left;
+    margin-left: .4em;
+
+}
+#buttonGroup {
+    padding: 1em 0 1em 0;
+}
+#scoreLabel, #playerScore {
+    width: 200px;
+    margin-bottom: .4em;
+
+}
+.teal {
+    background: teal;
+    color: white;
+}
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
