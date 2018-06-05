@@ -77,3 +77,5 @@ $('#yellow').click(function() {
 	updateScore(yellowVal);
 	checkVal();
 });
+
+$('#id').html(someVal);

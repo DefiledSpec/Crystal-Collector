@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/js/app.js" defer></script>
     <title>Crystal Collector</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -19,13 +20,14 @@
         <p>Each time when the game starts, the game will change the values of each crystal.</p>
     </section>
 
-
-    <div id="gameNumber">40</div>
-    <div id="winLosses">Wins: <span id="wins">0</span><br>Losses: <span id="losses">0</span></div>
+    <div class="centered">
+        <div id="gameNumber">40</div>
+        <div id="winLosses">Wins: <span id="wins">0</span><br>Losses: <span id="losses">0</span></div>
+    </div>
     <div class="clearfix"></div>
 
 
-    <div id="buttonGroup">
+    <div id="buttonGroup" class="centered">
         <button id="blue">Blue</button>
         <button id="red">Red</button>
         <button id="green">Green</button>
@@ -36,7 +38,7 @@
     <div id="scoreLabel" class="teal">Your total score is: </div>
     <div id="playerScore" class="teal"></div>
 
-    <script src="assets/js/app.js"></script>
+
     
 </body>
 </html>
