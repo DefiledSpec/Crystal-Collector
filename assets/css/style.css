@@ -5,6 +5,9 @@
     font-family: arial, sans-serif;
 
 }
+body {
+    background: url('../img/congruent_outline.png')
+}
 p {
     margin: .65em auto;
 }
