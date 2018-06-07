@@ -1,51 +1,105 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: arial, sans-serif;
 
 }
-html, body {
-    margin: .2em;
-    padding: 0;
+p {
+    margin: .65em auto;
+}
+#buttonGroup button {
+    font-size: 1.3em;
+    padding: .6em;
+    border-radius: 2px;
+    border: none;
+    opacity: .8;
+    color: rgb(100, 97, 97);
+    
+    
+}
+#blue {
+    background: rgb(37, 192, 243);
+}
+#red {
+    background: rgb(238, 65, 65);
+}
+#green {
+    background: rgb(74, 196, 74);
+}
+#yellow {
+    background: rgb(235, 235, 48);
 }
 
 #title {
+    border-radius: 2px;
+    
     width: max-content;
-    background: orange;
+    background: teal;
     color: white;
     padding: .5em .1em .5em .1em;
-    margin: 0 auto;
+    margin-bottom: 1em;
 }
 
 #instructions {
-    width: 400px;
-    background: tan;
-    margin: 0 auto; 
+    width: 100%;
+    background: darkgray;
+    margin-bottom: 1em;
+    padding: 0.5em 1em; 
+    border-radius: 2px;
+    
 }
 #gameNumber {
-    width: 100px;
-    padding: 1em;
+    width: max-content;
+    padding: .5em;
     text-align: center;
     background: green;
+    color: white;
     float: left;
+    font-size: 2em;
+    
+    border-radius: 2px;
+    
 }
 #winLosses {
     background: lightblue;
-    width: 80px;
+    width: max-content;
     float: left;
     margin-left: .4em;
+    padding: 0.2em .8em;
+    font-size: 1.2em;
+    border-radius: 2px;
+    margin-right: 2em;
+    
 
 }
 #buttonGroup {
     padding: 1em 0 1em 0;
 }
 #scoreLabel, #playerScore {
+    border-radius: 2px;
+    
     width: 200px;
     margin-bottom: .4em;
+    text-align: center;
+    font-size: 1.2em;
+    padding: .25em;
+    
 
+}
+#wins {
+    text-align: right;
 }
 .centered {
     width: max-content;
     margin-left: auto;
     margin-right: auto;
+}
+.wrapper {
+    border-radius: 2px;
+    max-width: 400px;
+    background: lightslategray;
+    padding: 2em;
 }
 .teal {
     background: teal;
