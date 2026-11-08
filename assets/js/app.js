@@ -1,8 +1,12 @@
 // Game State
 let targetScore = 0;
 let playerScore = 0;
-let wins = 0;
-let losses = 0;
+
+// Load statistics from localStorage, or default to 0 if playing for the first time
+let wins = parseInt(localStorage.getItem('crystal_wins')) || 0;
+let losses = parseInt(localStorage.getItem('crystal_losses')) || 0;
+let currentStreak = parseInt(localStorage.getItem('crystal_current_streak')) || 0;
+let bestStreak = parseInt(localStorage.getItem('crystal_best_streak')) || 0;
 
 const crystals = {
   blue: { val: 0, element: $('#blue') },
@@ -11,7 +15,7 @@ const crystals = {
   yellow: { val: 0, element: $('#yellow') }
 };
 
-// Optional: Sound framework (uses standard Web Audio API - no external assets needed!)
+// Sound framework (Standard Web Audio API)
 function playSound(type) {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -37,7 +41,7 @@ function playSound(type) {
       gain.gain.setValueAtTime(0.3, ctx.currentTime);
       osc.start(); osc.stop(ctx.currentTime + 0.3);
     }
-  } catch(e) { /* Audio context blocked or unsupported */ }
+  } catch(e) { /* Audio contexts blocked or unsupported */ }
 }
 
 function initGame() {
@@ -47,42 +51,63 @@ function initGame() {
   // Assign random values to crystals (1 to 12)
   for (let color in crystals) {
     crystals[color].val = Math.floor(Math.random() * 12) + 1;
-    // Remove any previous endgame animation classes
-    crystals[color].element.removeClass('bounce press');
+    crystals[color].element.removeClass('press');
   }
 
-  // Update UI Elements
+  // Sync state data directly onto layout text elements
   $('#gameNumber').text(targetScore).removeClass('pulse-win shake-lose');
   $('#playerScore').text(playerScore).removeClass('text-win');
   $('#wins').text(wins);
   $('#losses').text(losses);
+  
+  // Update Streak UI values dynamically if elements exist
+  if ($('#bestStreak').length) $('#bestStreak').text(bestStreak);
+  if ($('#currentStreak').length) $('#currentStreak').text(currentStreak);
+}
+
+function saveStats() {
+  localStorage.setItem('crystal_wins', wins);
+  localStorage.setItem('crystal_losses', losses);
+  localStorage.setItem('crystal_current_streak', currentStreak);
+  localStorage.setItem('crystal_best_streak', bestStreak);
 }
 
 function checkGameState() {
   if (playerScore === targetScore) {
     wins++;
+    currentStreak++;
+    
+    // Check if the current streak beats our historical record
+    if (currentStreak > bestStreak) {
+      bestStreak = currentStreak;
+    }
+    
+    saveStats();
     playSound('win');
     $('#gameNumber').addClass('pulse-win');
     $('#playerScore').addClass('text-win');
-    setTimeout(initGame, 1200); // 1.2s delay so player feels the win
+    setTimeout(initGame, 1200);
+    
   } else if (playerScore > targetScore) {
     losses++;
+    currentStreak = 0; // Reset your operational consecutive run on a bust
+    
+    saveStats();
     playSound('lose');
     $('#gameNumber').addClass('shake-lose');
-    setTimeout(initGame, 1200); // 1.2s delay to process loss
+    setTimeout(initGame, 1200);
   }
 }
 
 // Event Listeners
 Object.keys(crystals).forEach(color => {
   crystals[color].element.on('click', function() {
-    if (playerScore >= targetScore) return; // Prevent clicking during reset animation
+    if (playerScore >= targetScore) return; // Prevent clicks during layout transitions
     
     playSound('click');
     playerScore += crystals[color].val;
     $('#playerScore').text(playerScore);
     
-    // Quick CSS micro-interaction trigger
     $(this).addClass('press');
     setTimeout(() => $(this).removeClass('press'), 100);
 
