@@ -42,10 +42,10 @@ Since this application relies strictly on client-side frontend technologies, you
 
 1.  Clone this repository to your computer:
     ```bash
-    git clone https://github.com
+    git clone https://github.com/DefiledSpec/Crystal-Collector.git
     ```
 2.  Navigate into the project directory:
     ```bash
-    cd YOUR_REPOSITORY_NAME
+    cd YOUR_DIRECTORY_NAME
     ```
 3.  Open `index.html` directly in your favorite web browser, or launch it with a development extension like VS Code's **Live Server**.
